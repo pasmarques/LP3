@@ -1,0 +1,71 @@
+modelo Livro
+início do modelo
+	dado autor,editora,genêro,volume,título,anoPublicação; //os tipos de dados que considerei ao fazer a 9
+	
+	
+modelo LivroDeLivraria
+início do modelo
+	dado quantidadeTotal = 100, códigoLivro,foiComprado, quantidadeEmVenda,preço,quantidadeVendidos=0;
+
+	operação informaCódigo(Livro)//operação visando criar uma espécie de código de barras
+		início
+			/*a livraria, a partir do recebimento de um livro recebido do modelo
+			criado associaria um código de especificação para cada um, esse valor
+			de código já estaria pré-definido pela empresa, que no caso é a livraria.
+			*/
+			CódigoLivro = //valor inteiro;
+		fim
+
+
+	operação obtemPreço(códigoLivro)
+		início
+			
+			/*a livraria já teria um preço definido para cada código de livro e isso
+			determinaria o preço dos livros
+			*/
+
+			se(códigoLivro==//valor inteiro)
+			{
+				preço= //valor real;
+			}
+			senao
+			{
+				se(códigoLivro==//valor inteiro)
+				{
+					preço= //valor real;
+				}
+				senao
+				{
+					se(códigoLivro==//valor inteiro)
+					{
+						preço= //valor real;
+					}
+				}
+			}
+
+			//essa sequencia de testes se repetiria de acordo a quantidade de códigos.
+		fim
+	
+	operação ehComprado(nome)
+		início
+			foiComprado = nome //podendo ser nome de uma pessoa física, ou nome de uma empresa (pessoa jurídica)
+			quantidadeVendidos = quantidadeVendidos+1;
+			/*
+			sempre que houver um livro comprado a quantidade vendida é incrementada
+			*/
+			se(quantidadeVendidos==quantidadeTotal)
+			{
+				escreva("Todos os livros estão vendidos");
+			}
+				
+		fim
+			
+	operação quantidadeEmVenda(quantidadeVendidos)
+		início
+			quantidadeEmVenda = quantidadeTotal-quantidadeVendidos;
+		fim
+
+
+Nesse exercício eu fiquei na dúvida sobre oque considerar, pois na minha visão um sistema de compras envolve várias operações.
+Como por exemplo fixar um preço por código de livro/por gênero e perguntar ao usuário a quantia desejada, posso envolver um sistema
+de entrega também e n outras situações, tentei fazer da maneira mais genérica.

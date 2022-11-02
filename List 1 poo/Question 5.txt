@@ -1,0 +1,26 @@
+modelo ContaBancariaSimplificada
+inicio do modelo
+	dado nomeDoCorrentista,saldo,ContaÉEspecial; //dados da conta
+
+	//inicializa todos os dados do modelo
+	operação abreConta(nome,depósito,especial)
+		início
+			//usa os argumentos pra inicializar os dados indicados no modelo
+			nomeDoCorrentista = nome;
+			Se(depósito<0)
+			{
+				saldo = 0;
+			}
+			
+			senao
+			{
+				saldo = depósito;
+			}
+				
+			ContaÉEspecial=especial;
+		fim
+
+Com isso, é possível controlar a quantia inserida na conta a partir de um simples
+se,senao, impedindo a entrada de valores negativos na operação abreConta. Na ope-
+ração abreContaSimples esse saldo já é por padrão 0, não depende de um valor pas-
+sado por parâmetro.
