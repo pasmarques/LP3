@@ -1,3 +1,4 @@
+package DataHora;
 public class DataWithConstructor {
     private int day;
     private int month;
@@ -106,9 +107,10 @@ public class DataWithConstructor {
         this.year=1970;
     }
 
-    public void printDate()
+    public String dayToPrintShort()
     {
-        System.out.format("%d/%d/%d", getDay(),getMonth(), getYear());
+        String res =getDay()+"/"+getMonth()+"/"+getYear();
+        return res;
     }
 
     public void printDateExtense()
@@ -252,4 +254,31 @@ public class DataWithConstructor {
             DataWithConstructor dataAux = new DataWithConstructor(day, month,year);
             return differenceinDays(dataAux);
     }
+
+    public static int howManyDaysUntilEndYear(DataWithConstructor d)
+    {
+        int i;
+        int countDays=0;
+        for(i=d.getMonth();i<=12;i++)
+        {
+            countDays+=i;
+        }
+
+        return (countDays*30) - d.day;
+    }
+
+
+    public static int howManyDaysUntilNextMonth(DataWithConstructor d)
+    {
+        int i;
+        int countDays=0;
+
+        for(i=d.getDay();i<=30;i++)
+        {
+             countDays+=i;
+        }
+
+        return countDays - d.day;
+    }
+
 }

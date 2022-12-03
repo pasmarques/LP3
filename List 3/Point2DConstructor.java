@@ -1,25 +1,24 @@
 public class Point2DConstructor{
 
-        private int x;
-        private int y;
+        private float x;
+        private float y;
 
+        public Point2DConstructor(float x, float  y)
+        {
+           this.x=x;
+           this.y=y;
+        }
+        
         public Point2DConstructor()
         {
-            this.x=0;
-            this.y=0;
+            this(0,0);
         }   
 
-        public Point2DConstructor(int x, int y)
-        {
-            this.x=x;
-            this.y=y;
-        }
-    
-        public int getX()
+        public float getX()
         {
             return this.x;
         }
-        public int getY()
+        public float getY()
         {
             return this.y;
         }
@@ -39,7 +38,7 @@ public class Point2DConstructor{
             return (!(isEixoX())&&!(isEixoY()));
         }
     
-        public final void setPoint2D(int x1, int y1)
+        public final void setPoint2D(float x1, float y1)
         {
             this.x=x1;
             this.y=y1;

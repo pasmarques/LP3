@@ -86,6 +86,7 @@ public class Date {
     public void printDate()
     {
         System.out.format("%d/%d/%d", getDay(),getMonth(), getYear());
+        System.out.println();
     }
 
     public void printDateExtense()

@@ -69,19 +69,4 @@ public class TimeAsInt {
         return (outraHora.value-this.value);
     }
     
-    public static void main (String args[])
-    {
-        System.out.println("Hora como enteiro:");
-        TimeAsInt time2 = new TimeAsInt();
-        TimeAsInt time3 = new TimeAsInt();
-        time3.setTime(12,10,10);
-        //time2.prnTime();
-        time2.setTime(12, 10, 20);
-        //time2.prnTime();
-        System.out.println(time2.cron(time3));
-        //time2.addSeconds(30);
-        //time2.prnTime();
-
-        System.out.println(time2.isAm());
-    }
 }

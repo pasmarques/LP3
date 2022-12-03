@@ -24,7 +24,7 @@ public class craps
                 firstDice= dice1.nextInt(6)+1;
                 secondDice = dice2.nextInt(6)+1;
 
-                verifyGame(firstDice, secondDice);
+                //verifyGame(firstDice, secondDice);
 
                 System.out.println("Do you want continue the game? Press 0 to exit 1 to continue):");
                 flag=optionInput.nextInt();

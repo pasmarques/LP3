@@ -2,12 +2,29 @@ public class DataWithConstructor {
     private int day;
     private int month;
     private int year;
+    
+    public DataWithConstructor(int day, int month, int year)
+    {
+        if ((validateDay(day))&&(validateMonth(month))&&(validateYear(year)))
+        {
+            this.day=day;
+            this.month=month;
+            this.year=year;
+        }
+        else
+        {
+            initializeDate();
+        }
+    }
 
     public DataWithConstructor()
     {
-        this.day=1;
-        this.month=1;
-        this.year=1900;
+        this(1,1,1970);
+    }
+
+    public DataWithConstructor(DataWithConstructor outraData)
+    {
+        this(outraData.day,outraData.month,outraData.year);
     }
 
     public int getDay()
@@ -52,7 +69,7 @@ public class DataWithConstructor {
     //considerei um intervalo arbitrário pro ano
     private boolean validateYear(int year)
     {
-        if(year>=1900||year<=2022)
+        if(year>=1970||year<=2022)
         {
             return true;
         }
@@ -69,24 +86,24 @@ public class DataWithConstructor {
      */
 
     public void setDate(int day, int month, int year) {
-        if ((validateDay(day))&&(validateMonth(month))&&(validateYear(year))){
+        if ((validateDay(day))&&(validateMonth(month))&&(validateYear(year)))
+        {
             this.day=day;
             this.month=month;
             this.year=year;
         }
-        else{
-            this.day=0;
-            this.month=0;
-            this.year=0;
+        else
+        {
+           initializeDate();
         }
     }
 
     //inicializei com um valor padrão
     public void initializeDate()
     {
-        this.day=0;
-        this.month=0;
-        this.year=0;
+        this.day=1;
+        this.month=1;
+        this.year=1970;
     }
 
     public void printDate()
@@ -137,7 +154,7 @@ public class DataWithConstructor {
                 month ="dezembro";
                 break;
             default:
-                month ="nao existe esse mes";
+                month = null;
                 break;        
         }
 
@@ -183,7 +200,7 @@ public class DataWithConstructor {
         return false;
     }
 
-    public int howManyDays(DataWithConstructor outraData)
+    public int differenceinDays(DataWithConstructor outraData)
     {
         int differenceInDays;
         int differenceInMonths;
@@ -223,6 +240,43 @@ public class DataWithConstructor {
             }
 
         }
-
     }
+
+    public int howManyDays(DataWithConstructor outraData)
+    {
+            return differenceinDays(outraData);
+    }
+
+    public int howManyDays(int day, int month,int year)
+    {
+            DataWithConstructor dataAux = new DataWithConstructor(day, month,year);
+            return differenceinDays(dataAux);
+    }
+
+    public static int howManyDaysUntilEndYear(DataWithConstructor d)
+    {
+        int i;
+        int countDays=0;
+        for(i=d.getMonth();i<=12;i++)
+        {
+            countDays+=i;
+        }
+
+        return (countDays*30) - d.day;
+    }
+
+
+    public static int howManyDaysUntilNextMonth(DataWithConstructor d)
+    {
+        int i;
+        int countDays=0;
+
+        for(i=d.getDay();i<=30;i++)
+        {
+             countDays+=i;
+        }
+
+        return countDays - d.day;
+    }
+
 }
